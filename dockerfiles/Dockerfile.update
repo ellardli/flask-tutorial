@@ -1,0 +1,15 @@
+FROM flask-tutorial:base
+
+# File copying
+ADD / /var/www
+WORKDIR /var/www
+
+# Installing Python requirements
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
+
+# Setting up the uwsgi ini script
+RUN mv configs/uwsgi.ini .
+
+# Set up Nginx
+RUN mv configs/nginxproject.conf /etc/nginx/sites-available/nginxproject.conf
