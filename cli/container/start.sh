@@ -7,4 +7,4 @@ chown www-data:www-data /var/www
 service nginx restart
 
 # Start the application uwsgi
-uwsgi --ini /var/www/uwsgi.ini
+uwsgi --need-app --ini /var/www/uwsgi.ini
